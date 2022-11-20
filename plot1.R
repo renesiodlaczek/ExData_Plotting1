@@ -12,6 +12,8 @@ data$datetime <- strptime(data$datetime, format = "%d/%m/%Y-%H:%M:%S")
 
 
 # Create and save plot
+Sys.setlocale("LC_TIME", "C")
+
 png("plot1.png", width = 480, height = 480)
 
 hist(data$Global_active_power, 

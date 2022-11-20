@@ -12,6 +12,8 @@ data$datetime <- strptime(data$datetime, format = "%d/%m/%Y-%H:%M:%S")
 
 
 # Create and save plot
+Sys.setlocale("LC_TIME", "C")
+
 png("plot2.png", width = 480, height = 480)
 
 plot(data$datetime, 
@@ -21,8 +23,3 @@ plot(data$datetime,
      ylab = "Global Active Power (kilowatts)")
 
 dev.off()
-
-
-
-
-

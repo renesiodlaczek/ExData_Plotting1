@@ -12,6 +12,8 @@ data$datetime <- strptime(data$datetime, format = "%d/%m/%Y-%H:%M:%S")
 
 
 # Create and save plot
+Sys.setlocale("LC_TIME", "C")
+
 png("plot3.png", width = 480, height = 480)
 
 plot(data$datetime, 
@@ -30,7 +32,3 @@ legend("topright",
        lty = "solid")
         
 dev.off()
-
-
-
-
