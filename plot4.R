@@ -11,9 +11,9 @@ data$datetime <- with(data, paste(Date, Time, sep = "-"))
 data$datetime <- strptime(data$datetime, format = "%d/%m/%Y-%H:%M:%S")
 
 
-# Set options to plot multiple graphs
+# Set options
+png("plot4.png", width = 480, height = 480)
 par(mfrow = c(2, 2))
-
 
 # Create first plot
 plot(data$datetime, 
@@ -42,7 +42,7 @@ lines(data$datetime, data$Sub_metering_3, col = "blue")
 
 legend("topright",
        bty = "n",
-       lty = 1,
+       lty = "solid",
        col = c("black", "red", "blue"), 
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
        
@@ -53,9 +53,6 @@ plot(data$datetime,
      xlab = "datetime",
      ylab = "Global_reactive_power")
 
-
-# Save plot
-dev.copy(device = png, file = "plot4.png", width = 480, height = 480)
 dev.off()
 
 

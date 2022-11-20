@@ -11,7 +11,9 @@ data$datetime <- with(data, paste(Date, Time, sep = "-"))
 data$datetime <- strptime(data$datetime, format = "%d/%m/%Y-%H:%M:%S")
 
 
-# Create plot
+# Create and save plot
+png("plot3.png", width = 480, height = 480)
+
 plot(data$datetime, 
      data$Sub_metering_1, 
      type = "n",
@@ -23,14 +25,10 @@ lines(data$datetime, data$Sub_metering_2, col = "red")
 lines(data$datetime, data$Sub_metering_3, col = "blue")
 
 legend("topright",
-       lty = 1,
-       col = c("black", "red", "blue"), 
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       y.intersp = 0.3)
-
-
-# Save plot
-dev.copy(device = png, file = "plot3.png", width = 480, height = 480)
+       col = c("black", "red", "blue"),
+       lty = "solid")
+        
 dev.off()
 
 
